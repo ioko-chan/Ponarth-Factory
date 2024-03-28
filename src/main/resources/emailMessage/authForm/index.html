@@ -1,72 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-    <style>
-      body {
-        font-family: Montserrat;
-      }
-      form {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
-      .border {
-        width: 290px;
-        height: 340px;
-        border: 1px solid rgba(0, 0, 0, 0.331);
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-      }
-      label {
-        font-weight: 600;
-      }
-      .block {
-        display: flex;
-        justify-content: center;
-      }
-
-      .item {
-        margin-left: 10px;
-      }
-      img {
-        width: 240px;
-        margin-bottom: 35px;
-      }
-      blockquote {
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <form>
-      <div class="border">
-        <img src="https://beer.ponarth.com/i/logo.png" alt="" />
-        <div class="block">
-          <div class="item">
-            <label for="login">Логин:</label>
-            <span id="login" th:text="${login}"></span>
-          </div>
-          <div class="item">
-            <label for="password">Пароль:</label>
-            <span id="password" th:text="${password}"></span>
-          </div>
-        </div>
-
-        <blockquote>
-          Удачного дня! <br /><strong><i>© Ponarth Team </i></strong>
-        </blockquote>
-      </div>
-    </form>
-  </body>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+  />
+  <title>Document</title>
+  <style>
+    table.iksweb {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      height: auto;
+    }
+    table.iksweb,
+    table.iksweb td,
+    table.iksweb th {
+      border: 1px solid #595959;
+    }
+    table.iksweb td,
+    table.iksweb th {
+      padding: 3px;
+      width: 30px;
+      height: 35px;
+    }
+    table.iksweb th {
+      background: #347c99;
+      color: #fff;
+      font-weight: normal;
+    }
+    img {
+      width: 200px;
+    }
+  </style>
+</head>
+<body style="font-family: Montserrat">
+<table class="iksweb">
+  <tbody>
+  <tr>
+    <td colspan="4" align="center">
+      <img src="https://beer.ponarth.com/i/logo.png" alt="" />
+    </td>
+  </tr>
+  <tr>
+    <td>Login:</td>
+    <td th:text="${login}"></td>
+    <td>Pass:</td>
+    <td th:text="${password}"></td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center">Good luck</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center">ponathteam</td>
+  </tr>
+  </tbody>
+</table>
+</body>
 </html>
