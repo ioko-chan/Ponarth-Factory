@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 
 public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
