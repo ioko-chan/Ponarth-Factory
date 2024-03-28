@@ -50,7 +50,7 @@ public class AuthService {
         this.emailService = emailService;
         this.generatorPasswordUtils = generatorPasswordUtils;
 
-        //saveAdminUser();
+        saveAdminUser();
     }
 
     public void saveAdminUser() throws ValidationException, MessagingException, RoleNotFoundException, UserAlreadyExistsException {
