@@ -42,7 +42,7 @@ public class AuthService {
 
     private final GeneratorPasswordUtils generatorPasswordUtils;
 
-    public AuthService(PasswordEncoder passwordEncoder, AuthProvider authProvider, UserDetailsServiceImpl userDetailsService, MappingUtils mappingUtils, EmailService emailService, GeneratorPasswordUtils generatorPasswordUtils) throws ValidationException, MessagingException, RoleNotFoundException, UserAlreadyExistsException {
+    public AuthService(PasswordEncoder passwordEncoder, AuthProvider authProvider, UserDetailsServiceImpl userDetailsService, MappingUtils mappingUtils, EmailService emailService, GeneratorPasswordUtils generatorPasswordUtils){
         this.encoder = passwordEncoder;
         this.authProvider = authProvider;
         this.userDetailsService = userDetailsService;
