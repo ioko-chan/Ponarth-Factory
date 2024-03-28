@@ -14,25 +14,27 @@ public class StoreService {
     @Value("${store.path}")
     private String filePath;
 
-    public String loadImage(MultipartFile file, String filename){
+    public String loadImage(MultipartFile file, String filename) {
         if (!file.isEmpty()) {
             try {
+                new File(filePath).mkdirs();
                 byte[] bytes = file.getBytes();
+                String filePathName = filePath + "/" + filename + "." + file.getContentType().replace("image/", "");
                 BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File(filePath + filename + "-uploaded" + file.getContentType())));
+                        new BufferedOutputStream(new FileOutputStream(new File(filePathName)));
                 stream.write(bytes);
                 stream.close();
-                return "Вы удачно загрузили " + filePath + filename + " в " + filename + "-uploaded !" + file.getContentType();
+                return "Вы удачно загрузили " + filename + " в " + filePathName + "-uploaded !" + file.getContentType();
             } catch (Exception e) {
-                return "Вам не удалось загрузить " + filePath + filename + file.getContentType() + " => " + e.getMessage();
+                return "Вам не удалось загрузить " + filename + " => " + e.getMessage();
             }
         } else {
-            return "Вам не удалось загрузить " + filePath + filename + file.getContentType() + " потому что файл пустой.";
+            return "Вам не удалось загрузить " + filename + " потому что файл пустой.";
         }
 
     }
 
-    public String getPathImage(){
+    public String getPathImage() {
         return "";
     }
 }

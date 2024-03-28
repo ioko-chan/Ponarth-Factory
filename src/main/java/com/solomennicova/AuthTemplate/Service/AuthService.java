@@ -42,14 +42,13 @@ public class AuthService {
 
     private final GeneratorPasswordUtils generatorPasswordUtils;
 
-    public AuthService(PasswordEncoder passwordEncoder, AuthProvider authProvider, UserDetailsServiceImpl userDetailsService, MappingUtils mappingUtils, EmailService emailService, GeneratorPasswordUtils generatorPasswordUtils){
+    public AuthService(PasswordEncoder passwordEncoder, AuthProvider authProvider, UserDetailsServiceImpl userDetailsService, MappingUtils mappingUtils, EmailService emailService, GeneratorPasswordUtils generatorPasswordUtils) throws ValidationException, MessagingException, RoleNotFoundException, UserAlreadyExistsException {
         this.encoder = passwordEncoder;
         this.authProvider = authProvider;
         this.userDetailsService = userDetailsService;
         this.mappingUtils = mappingUtils;
         this.emailService = emailService;
         this.generatorPasswordUtils = generatorPasswordUtils;
-
 
         //saveAdminUser();
     }

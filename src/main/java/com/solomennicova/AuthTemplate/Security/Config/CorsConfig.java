@@ -1,6 +1,5 @@
 package com.solomennicova.AuthTemplate.Security.Config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -12,9 +11,10 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-                .allowedOrigins("*")
+        registry.addMapping("/**")
+                .allowedOriginPatterns("*")
                 .allowedMethods("*")
+                .allowedHeaders("Authorization")
                 .allowCredentials(true)
                 .maxAge(3600);
     }
