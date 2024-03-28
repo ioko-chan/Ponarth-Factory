@@ -82,4 +82,9 @@ public class UserController {
         return ResponseEntity.ok(storeService.loadImage(file, name));
     }
 
+    @GetMapping("/ping")
+    public String ping() {
+        return "pong";
+    }
+
 }
