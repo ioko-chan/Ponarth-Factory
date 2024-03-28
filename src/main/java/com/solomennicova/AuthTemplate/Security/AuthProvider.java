@@ -45,6 +45,7 @@ public class AuthProvider {
                 .withExpiresAt(expirationDate)
                 .withClaim("id", user.getId())
                 .withClaim("username", user.getUsername())
+                .withClaim("email", user.getEmail())
                 .withClaim("roles", user.getRoles().stream().map(Role::getName).toList())
                 .sign(Algorithm.HMAC256(secretKey));
 
@@ -77,6 +78,7 @@ public class AuthProvider {
         }
 
         info.setUsername(username);
+        info.setEmail(decodedJWT.getClaim("email").asString());
         info.setRoles(decodedJWT.getClaim("roles").asList(String.class));
         return info;
     }

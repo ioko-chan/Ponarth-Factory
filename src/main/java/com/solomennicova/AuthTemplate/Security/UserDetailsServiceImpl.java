@@ -30,6 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         this.userRepository = userRepository;
         this.encoder = encoder;
         this.mappingUtils = mappingUtils;
+
     }
 
     @Override

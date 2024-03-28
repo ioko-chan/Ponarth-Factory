@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Montserrat;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      .border {
+        width: 290px;
+        height: 340px;
+        border: 1px solid rgba(0, 0, 0, 0.331);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      label {
+        font-weight: 600;
+      }
+      .block {
+        display: flex;
+        justify-content: center;
+      }
+
+      .item {
+        margin-left: 10px;
+      }
+      img {
+        width: 240px;
+        margin-bottom: 35px;
+      }
+      blockquote {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="border">
+        <img src="https://beer.ponarth.com/i/logo.png" alt="" />
+        <div class="block">
+          <div class="item">
+            <label for="login">Логин:</label>
+            <span id="login" th:text="${login}"></span>
+          </div>
+          <div class="item">
+            <label for="password">Пароль:</label>
+            <span id="password" th:text="${password}"></span>
+          </div>
+        </div>
+
+        <blockquote>
+          Удачного дня! <br /><strong><i>© Ponarth Team </i></strong>
+        </blockquote>
+      </div>
+    </form>
+  </body>
+</html>

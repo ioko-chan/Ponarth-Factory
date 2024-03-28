@@ -31,6 +31,7 @@ public class MappingUtils {
         user.setId(userDto.getId());
         user.setUsername(userDto.getUsername());
         user.setPassword(userDto.getPassword());
+        user.setEmail(userDto.getEmail());
         return user;
     }
 
@@ -39,6 +40,7 @@ public class MappingUtils {
         User user = new User();
         user.setUsername(userDto.getUsername());
         user.setPassword(userDto.getPassword());
+        user.setEmail(userDto.getEmail());
 
         for (String role : userDto.getRoles()) {
             Role newRole = roleRepository.findByName(role);
@@ -54,9 +56,9 @@ public class MappingUtils {
         UserDto userDto = new UserDto();
         userDto.setUsername(user.getUsername());
         userDto.setPassword(user.getPassword());
+        userDto.setEmail(user.getEmail());
 
         Set<String> rolesDto = new HashSet<>();
-
 
         for(Role role : user.getRoles()){
             rolesDto.add(role.getName());
@@ -71,6 +73,7 @@ public class MappingUtils {
         userDto.setId(user.getId());
         userDto.setUsername(user.getUsername());
         userDto.setPassword(user.getPassword());
+        userDto.setEmail(user.getEmail());
 
         Set<String> rolesDto = new HashSet<>();
 

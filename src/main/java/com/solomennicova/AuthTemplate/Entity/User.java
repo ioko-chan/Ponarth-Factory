@@ -27,6 +27,9 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private String email;
+
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name ="user_id", unique = false),
@@ -36,6 +39,8 @@ public class User implements Serializable {
     private Date dateRegistration;
 
     private boolean enabled;
+
+
 
     public void addRole(Role role){
         roles.add(role);

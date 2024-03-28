@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.xml.bind.ValidationException;
 import org.springframework.http.ResponseEntity;
@@ -40,9 +41,10 @@ public class AuthController {
                     @Content(schema = @Schema(implementation = ErrorDto.class))
             })
     })
+    @SecurityRequirement(name = "Bearer Authentication")
     @PostMapping("/registration")
-    public ResponseEntity<TokensDto> regUser(@RequestBody @Validated UserDto userDto) throws ExecutionException, InterruptedException, RoleNotFoundException, ValidationException, UserAlreadyExistsException {
-        return ResponseEntity.ok(authService.regUser(userDto).get());
+    public void regUser(@RequestBody @Validated UserDto userDto) throws ExecutionException, InterruptedException, RoleNotFoundException, ValidationException, UserAlreadyExistsException, MessagingException {
+        authService.regUser(userDto);
     }
 
     @ApiResponses(value = {

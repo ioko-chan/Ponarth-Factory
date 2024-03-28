@@ -26,7 +26,7 @@ public class SecurityFilterConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/auth/registration")
-                        .permitAll()
+                        .hasRole("ADMIN")
                         .requestMatchers("/auth/login")
                         .permitAll()
                         .requestMatchers("/user/**")

@@ -1,5 +1,6 @@
 package com.solomennicova.AuthTemplate.Dto.Authentication;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -20,6 +21,10 @@ public class UserInfoDto {
     @NotEmpty(message = "Пароль не должно быть пустым")
     @Size(min = 2, max = 15, message = "Пароль должен быть от 2 до 25 символов длиной")
     private String password;
+
+    @Email
+    @NotEmpty(message = "Email не должно быть пустым")
+    private String email;
 
     private Set<String> roles = new HashSet<>();
 }
