@@ -48,7 +48,7 @@ tasks.named('test') {
 }
 
 flyway {
-	url = 'jdbc:postgresql://authtemplate-db-1:5432/auth'
+	url = 'jdbc:postgresql://postgresql/auth'
 	user = 'POSTGRES'
 	password = '1234'
 }

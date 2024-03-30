@@ -19,7 +19,7 @@ public class AuthTemplateApplication {
 	@Bean
 	public void configure(){
 		Flyway flyway = Flyway.configure()
-				.dataSource("jdbc:postgresql://authtemplate-db-1:5432/auth", "postgres", "1234")
+				.dataSource("jdbc:postgresql://postgresql:5432/auth", "postgres", "1234")
 				.load();
 		flyway.migrate();
 	}

@@ -42,9 +42,6 @@ public class EmailService {
             }
         });
 
-        System.out.println(from);
-        System.out.println(password);
-
         session.setDebug(true);
 
         Context context = new Context();
