@@ -1,6 +1,7 @@
 FROM gradle:jdk17 AS builder
 WORKDIR /AuthTemplate
 COPY ./ ./
+RUN echo $JAVA_HOME
 RUN whereis java
 RUN gradle build -x test
 FROM openjdk:17
