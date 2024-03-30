@@ -5,13 +5,14 @@ services:
     ports:
       - 8082:8080
     depends_on:
-      - db
+      - postgresql
       - pgadmin
     volumes:
           - ./logs:/Auth/logs
     privileged: true
 
-  db:
+  postgresql:
+    container_name: postgresql
     image: postgres:latest
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
