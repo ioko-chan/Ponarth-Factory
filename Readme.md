@@ -1,8 +1,8 @@
 
 # Dev
 
-> http://localhost:8080/   
-> http://localhost:8080/swagger-ui/index.html
+> http://localhost:8082/   
+> http://localhost:8082/swagger-ui/index.html
 
 #  Prod
 
