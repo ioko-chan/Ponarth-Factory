@@ -2,6 +2,6 @@ FROM gradle:jdk17
 
 WORKDIR /AuthTemplate
 
-COPY ../../Desktop/dev /AuthTemplate
+COPY . /AuthTemplate
 
 CMD ["gradle", "bootRun"]
