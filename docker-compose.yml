@@ -10,8 +10,6 @@ services:
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./ponarth.com:/etc/letsencrypt/live/ponarth.com
-    networks:
-      - app-network
 
   postgresql:
     container_name: postgresql
@@ -25,8 +23,6 @@ services:
     restart: always
     volumes:
       - ./init:/docker-entrypoint-initdb.d/
-    networks:
-      - app-network
 
   app:
     build:
@@ -42,9 +38,3 @@ services:
       - nginx
       - postgresql
     restart: always
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
