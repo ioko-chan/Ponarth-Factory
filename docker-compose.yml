@@ -36,10 +36,11 @@ services:
     build:
       dockerfile: Dockerfile
     environment:
-      - DB_HOST=postgresql
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - SERVER_PORT=8080
+        DB_HOST: postgresql
+        POSTGRES_USER: ${POSTGRES_USER}
+        POSTGRES_DB: ${POSTGRES_DB}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        SERVER_PORT: 8080
     ports:
       - 8080:8080
     depends_on:
