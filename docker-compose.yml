@@ -34,7 +34,7 @@ services:
 
   app:
     build:
-      dockerfile: Dockerfile
+      context: .
     environment:
         DB_HOST: postgresql
         POSTGRES_USER: ${POSTGRES_USER}
