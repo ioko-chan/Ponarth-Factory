@@ -82,7 +82,6 @@ public class UserController {
         return ResponseEntity.ok(storeService.loadImage(file, name));
     }
 
-    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping("/ping")
     public String ping() {
         return "pong";
