@@ -56,7 +56,7 @@ public class AuthController {
                     @Content(schema = @Schema(implementation = ErrorDto.class))
             })
     })
-    @PostMapping("/login")
+        @PostMapping("/login")
     public ResponseEntity<TokensDto> loginUser(@RequestBody @Validated AuthenticationDto authUser) throws IncorrectUsernameOrPasswordException, ExecutionException, InterruptedException, UserDeletedException {
         return ResponseEntity.ok(authService.loginUser(authUser).get());
     }
