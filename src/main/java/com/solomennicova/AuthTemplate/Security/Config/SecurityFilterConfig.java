@@ -37,7 +37,6 @@ public class SecurityFilterConfig {
                         .hasRole("ADMIN")
                         .anyRequest().permitAll()
                 )
-                .addFilter(new CorsFilter())
                 .addFilterBefore(new JwtAuthFilter(authProvider), BasicAuthenticationFilter.class)
                 .build();
     }
