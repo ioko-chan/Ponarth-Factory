@@ -26,13 +26,13 @@ public class SecurityFilterConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/auth/registration")
+                        .requestMatchers("/api/auth/registration")
                         .hasRole("ADMIN")
-                        .requestMatchers("/auth/login")
+                        .requestMatchers("/api/auth/login")
                         .permitAll()
-                        .requestMatchers("/user/load")
+                        .requestMatchers("/api/user/load")
                         .permitAll()
-                        .requestMatchers("/user/all", "/user/delete/", "/user/update")
+                        .requestMatchers("/api/user/all", "/api/user/delete/", "/api/user/update")
                         .hasRole("ADMIN")
                         .anyRequest().permitAll()
                 )

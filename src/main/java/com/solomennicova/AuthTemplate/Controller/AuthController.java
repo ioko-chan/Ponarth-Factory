@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping(path="/auth")
+@RequestMapping(path="/api/auth")
 public class AuthController {
 
     private final AuthService authService;

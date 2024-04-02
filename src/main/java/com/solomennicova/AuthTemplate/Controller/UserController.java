@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping(path = "/user")
+@RequestMapping(path = "/api/user")
 public class UserController {
 
     private final UserDetailsServiceImpl userDetailsService;
