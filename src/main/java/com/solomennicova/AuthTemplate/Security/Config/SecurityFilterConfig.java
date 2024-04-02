@@ -1,6 +1,7 @@
 package com.solomennicova.AuthTemplate.Security.Config;
 
 import com.solomennicova.AuthTemplate.Security.AuthProvider;
+import com.solomennicova.AuthTemplate.Security.Filter.CorsFilter;
 import com.solomennicova.AuthTemplate.Security.Filter.JwtAuthFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +25,6 @@ public class SecurityFilterConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/api/auth/registration")
@@ -37,6 +37,7 @@ public class SecurityFilterConfig {
                         .hasRole("ADMIN")
                         .anyRequest().permitAll()
                 )
+                .addFilter(new CorsFilter())
                 .addFilterBefore(new JwtAuthFilter(authProvider), BasicAuthenticationFilter.class)
                 .build();
     }
