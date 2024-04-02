@@ -47,7 +47,7 @@ public class UserController {
             })
     })
     @SecurityRequirement(name = "Bearer Authentication")
-    @GetMapping("/all")
+    @GetMapping("/get/all")
     public ResponseEntity<List<UserInfoDto>> getUsersInfo() {
         return ResponseEntity.ok(userDetailsService.loadAllUserDto());
     }
