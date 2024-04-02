@@ -6,7 +6,7 @@
 
 #  Prod
 
-> http://82.202.160.180:8082/   
+> http://82.202.160.180:5052/   
 > http://82.202.160.180:8082/swagger-ui/index.html
 
 # Doc about users
