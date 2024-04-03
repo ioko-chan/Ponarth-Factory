@@ -40,8 +40,6 @@ public class User implements Serializable {
 
     private boolean enabled;
 
-
-
     public void addRole(Role role){
         roles.add(role);
     }

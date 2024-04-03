@@ -2,7 +2,7 @@ package com.solomennicova.AuthTemplate.Security;
 
 import com.solomennicova.AuthTemplate.Dto.Authentication.UserDto;
 import com.solomennicova.AuthTemplate.Dto.Authentication.UserInfoDto;
-import com.solomennicova.AuthTemplate.Dto.Utils.MappingUtils;
+import com.solomennicova.AuthTemplate.Dto.Utils.MappingUtilsUser;
 import com.solomennicova.AuthTemplate.Entity.User;
 import com.solomennicova.AuthTemplate.Exception.IncorrectUsernameOrPasswordException;
 import com.solomennicova.AuthTemplate.Repository.UserRepository;
@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -24,9 +23,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final PasswordEncoder encoder;
 
-    private final MappingUtils mappingUtils;
+    private final MappingUtilsUser mappingUtils;
 
-    public UserDetailsServiceImpl(UserRepository userRepository, PasswordEncoder encoder, MappingUtils mappingUtils) {
+    public UserDetailsServiceImpl(UserRepository userRepository, PasswordEncoder encoder, MappingUtilsUser mappingUtils) {
         this.userRepository = userRepository;
         this.encoder = encoder;
         this.mappingUtils = mappingUtils;

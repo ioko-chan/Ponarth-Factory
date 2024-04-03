@@ -14,13 +14,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class MappingUtils {
+public class MappingUtilsUser {
 
     private final UserRepository userRepository;
 
     private final RoleRepository roleRepository;
 
-    public MappingUtils(UserRepository userRepository, RoleRepository roleRepository) {
+    public MappingUtilsUser(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }

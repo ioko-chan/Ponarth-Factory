@@ -3,7 +3,7 @@ package com.solomennicova.AuthTemplate.Service;
 import com.solomennicova.AuthTemplate.Dto.Authentication.AuthenticationDto;
 import com.solomennicova.AuthTemplate.Dto.Authentication.TokensDto;
 import com.solomennicova.AuthTemplate.Dto.Authentication.UserDto;
-import com.solomennicova.AuthTemplate.Dto.Utils.MappingUtils;
+import com.solomennicova.AuthTemplate.Dto.Utils.MappingUtilsUser;
 import com.solomennicova.AuthTemplate.Entity.User;
 import com.solomennicova.AuthTemplate.Exception.IncorrectUsernameOrPasswordException;
 import com.solomennicova.AuthTemplate.Exception.RoleNotFoundException;
@@ -36,13 +36,13 @@ public class AuthService {
 
     private final UserDetailsServiceImpl userDetailsService;
 
-    private final MappingUtils mappingUtils;
+    private final MappingUtilsUser mappingUtils;
 
     private final EmailService emailService;
 
     private final GeneratorPasswordUtils generatorPasswordUtils;
 
-    public AuthService(PasswordEncoder passwordEncoder, AuthProvider authProvider, UserDetailsServiceImpl userDetailsService, MappingUtils mappingUtils, EmailService emailService, GeneratorPasswordUtils generatorPasswordUtils) throws ValidationException, MessagingException, RoleNotFoundException, UserAlreadyExistsException {
+    public AuthService(PasswordEncoder passwordEncoder, AuthProvider authProvider, UserDetailsServiceImpl userDetailsService, MappingUtilsUser mappingUtils, EmailService emailService, GeneratorPasswordUtils generatorPasswordUtils) throws ValidationException, MessagingException, RoleNotFoundException, UserAlreadyExistsException {
         this.encoder = passwordEncoder;
         this.authProvider = authProvider;
         this.userDetailsService = userDetailsService;
