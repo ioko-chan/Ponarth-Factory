@@ -51,16 +51,16 @@ public class AuthService {
         this.generatorPasswordUtils = generatorPasswordUtils;
 
         try {
-            saveAdminUser();
+            saveAdminUser("Kvotua");
         }
-        catch (Exception e){
-            e.printStackTrace();
+        catch (Exception ignored){
+
         }
     }
 
-    public void saveAdminUser() throws ValidationException, MessagingException, RoleNotFoundException, UserAlreadyExistsException {
+    public void saveAdminUser(String admin) throws ValidationException, MessagingException, RoleNotFoundException, UserAlreadyExistsException {
         UserDto userDto = new UserDto();
-        userDto.setUsername("Kvotua");
+        userDto.setUsername(admin);
         userDto.setPassword("");
         userDto.setEmail("solomennicova555@gmail.com");
         Set<String> roles = new HashSet<>();

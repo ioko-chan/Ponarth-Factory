@@ -3,18 +3,14 @@ package com.solomennicova.AuthTemplate.Controller;
 import com.solomennicova.AuthTemplate.Dto.Exception.ErrorDto;
 import com.solomennicova.AuthTemplate.Dto.Site.BeerDto;
 import com.solomennicova.AuthTemplate.Dto.Site.BeerInfoDto;
-import com.solomennicova.AuthTemplate.Exception.DontImageException;
-import com.solomennicova.AuthTemplate.Exception.ImageDontLoad;
 import com.solomennicova.AuthTemplate.Service.SiteService;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -34,7 +30,6 @@ public class SiteController {
                     @Content(schema = @Schema(implementation = ErrorDto.class))
             })
     })
-    @SecurityRequirement(name = "Bearer Authentication")
     @GetMapping("/beer/all")
     public ResponseEntity<List<BeerInfoDto>> getAllBeer() {
         return ResponseEntity.ok(siteService.getAllBeer());
@@ -47,10 +42,8 @@ public class SiteController {
             })
     })
     @SecurityRequirement(name = "Bearer Authentication")
-    @PostMapping(path ="/beer/add", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity<String> loadBeer(@RequestBody BeerDto beerDto, @RequestPart("file") MultipartFile file) throws ImageDontLoad, DontImageException {
-        return ResponseEntity.ok(siteService.addBeer(beerDto,file));
+    @PostMapping("/beer/add")
+    public void loadBeer(@RequestBody BeerDto beerDto){
+        siteService.addBeer(beerDto);
     }
-
-
 }

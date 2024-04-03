@@ -27,6 +27,7 @@ public class MappingUtilsBeer {
 
         beer.setName(beerDto.getName());
         beer.setDescription(beerDto.getDescription());
+        beer.setImage(beerDto.getPath());
         beer.setColor(beerDto.getColor());
 
         return beer;

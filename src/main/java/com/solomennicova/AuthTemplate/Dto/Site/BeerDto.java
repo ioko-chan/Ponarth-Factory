@@ -17,6 +17,9 @@ public class BeerDto {
     @NotEmpty(message = "Описание не должно быть пустым")
     private String description;
 
+    @NotEmpty(message = "Путь не должно быть пустым")
+    private String path;
+
     @NotEmpty(message = "Цвет не должен быть пустым")
     private String color;
 
