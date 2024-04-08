@@ -35,15 +35,5 @@ public class SiteController {
         return ResponseEntity.ok(siteService.getAllBeer());
     }
 
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful operation"),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                    @Content(schema = @Schema(implementation = ErrorDto.class))
-            })
-    })
-    @SecurityRequirement(name = "Bearer Authentication")
-    @PostMapping("/beer/add")
-    public void loadBeer(@RequestBody BeerDto beerDto){
-        siteService.addBeer(beerDto);
-    }
+
 }
