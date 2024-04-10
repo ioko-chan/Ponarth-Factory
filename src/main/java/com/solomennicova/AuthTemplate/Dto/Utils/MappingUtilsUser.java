@@ -16,12 +16,9 @@ import java.util.Set;
 @Service
 public class MappingUtilsUser {
 
-    private final UserRepository userRepository;
-
     private final RoleRepository roleRepository;
 
-    public MappingUtilsUser(UserRepository userRepository, RoleRepository roleRepository) {
-        this.userRepository = userRepository;
+    public MappingUtilsUser(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }
 

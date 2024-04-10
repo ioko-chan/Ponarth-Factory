@@ -41,7 +41,7 @@ public class SecurityFilterConfig {
                         .permitAll()
                         .requestMatchers("/api/user/all", "/api/user/delete", "/api/user/update")
                         .hasRole("ADMIN")
-                        .requestMatchers("/api/site/beer/add")
+                        .requestMatchers("/api/admin/beer/add", "/api/admin/beer/update", "/api/admin/vacancy/add", "/api/admin/vacancy/update", "/api/admin/beer/delete/", "/api/admin/vacancy/delete/")
                         .hasRole("ADMIN")
                         .anyRequest().permitAll()
                 )

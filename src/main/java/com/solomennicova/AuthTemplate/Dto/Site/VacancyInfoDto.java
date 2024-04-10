@@ -1,21 +1,22 @@
 package com.solomennicova.AuthTemplate.Dto.Site;
 
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.http.MediaType;
-
-import java.io.InputStream;
 
 @Data
 @NoArgsConstructor(access= AccessLevel.PUBLIC, force=true)
 @AllArgsConstructor
-public class Base64ImageDto {
+public class VacancyInfoDto {
 
-    private String base64Str;
+    @NotEmpty(message = "IDs не должно быть пустым")
+    private Long id;
 
-    private String mimeType;
+    private String name;
 
-    private String filename;
+    private String description;
+
+    private String image;
 }

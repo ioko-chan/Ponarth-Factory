@@ -90,14 +90,20 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         userRepository.save(user);
     }
 
-    public UserDto updateUser(User userUpdate){
+    public void updateUser(User userUpdate){
         User user = userRepository.findById(userUpdate.getId()).orElse(null);
         if(user == null){
             throw new UsernameNotFoundException("User not found");
         }
-        user.setUsername(userUpdate.getUsername());
-        user.setPassword(encoder.encode(userUpdate.getPassword()));
+        if(userUpdate.getUsername() != null && !userUpdate.getUsername().isEmpty()) {
+            user.setUsername(userUpdate.getUsername());
+        }
+        if(userUpdate.getPassword() != null && !userUpdate.getPassword().isEmpty()) {
+            user.setPassword(encoder.encode(userUpdate.getPassword()));
+        }
+        if(userUpdate.getEmail() != null && !userUpdate.getEmail().isEmpty()) {
+            user.setPassword(userUpdate.getEmail());
+        }
         userRepository.save(user);
-        return mappingUtils.UserToUserDto(user);
     }
 }

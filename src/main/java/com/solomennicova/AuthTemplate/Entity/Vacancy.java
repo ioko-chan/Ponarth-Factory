@@ -1,24 +1,26 @@
-package com.solomennicova.AuthTemplate.Dto.Site;
+package com.solomennicova.AuthTemplate.Entity;
 
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity(name="vacancy")
 @Data
 @NoArgsConstructor(access= AccessLevel.PUBLIC, force=true)
 @AllArgsConstructor
-public class BeerInfoDto {
+public class Vacancy {
 
-    @NotEmpty(message = "IDs не должно быть пустым")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
 
+    @Column(nullable = false ,unique = true)
     private String name;
 
     private String description;
-
-    private String color;
 
     private String image;
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path = "/api/user")
 public class UserController {
@@ -63,8 +64,8 @@ public class UserController {
     })
     @SecurityRequirement(name = "Bearer Authentication")
     @PutMapping("/update")
-    public ResponseEntity<UserDto> updateUser(@RequestBody @Validated UserUpdateDto userDto) throws RoleNotFoundException {
-        return ResponseEntity.ok(userDetailsService.updateUser(mappingUtils.UserUpdateDtoToUser(userDto)));
+    public void updateUser(@RequestBody @Validated UserUpdateDto userDto) throws RoleNotFoundException {
+        userDetailsService.updateUser(mappingUtils.UserUpdateDtoToUser(userDto));
     }
 
     @GetMapping("/ping")
