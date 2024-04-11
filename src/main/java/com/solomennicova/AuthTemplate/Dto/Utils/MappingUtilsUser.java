@@ -69,7 +69,6 @@ public class MappingUtilsUser {
 
         userDto.setId(user.getId());
         userDto.setUsername(user.getUsername());
-        userDto.setPassword(user.getPassword());
         userDto.setEmail(user.getEmail());
 
         Set<String> rolesDto = new HashSet<>();
