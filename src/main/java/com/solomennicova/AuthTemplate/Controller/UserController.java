@@ -67,10 +67,4 @@ public class UserController {
     public void updateUser(@RequestBody @Validated UserUpdateDto userDto) throws RoleNotFoundException {
         userDetailsService.updateUser(mappingUtils.UserUpdateDtoToUser(userDto));
     }
-
-    @GetMapping("/ping")
-    public ResponseEntity<String> ping() {
-        return ResponseEntity.ok("pong");
-    }
-
 }

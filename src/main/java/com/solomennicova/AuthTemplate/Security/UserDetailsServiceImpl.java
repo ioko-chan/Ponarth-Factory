@@ -65,7 +65,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         for (User user : users){
             UserInfoDto userDto = mappingUtils.UserToUserInfoDto(user);
             userDto.setPassword(userDto.getPassword());
-            usersDto.add(userDto);
+            if(user.getEnabled()) {
+                usersDto.add(userDto);
+            }
 
         }
         return usersDto;
