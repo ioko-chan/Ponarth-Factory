@@ -38,7 +38,7 @@ public class User implements Serializable {
 
     private Date dateRegistration;
 
-    private Boolean enabled;
+    private boolean enabled;
 
     public void addRole(Role role){
         roles.add(role);
